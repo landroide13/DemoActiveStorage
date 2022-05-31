@@ -1,0 +1,7 @@
+{
+  "name": "ActiveStorage",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
