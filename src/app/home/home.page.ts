@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,24 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  listData = []
+
+  constructor(private dataServ: DataService) {
+    this.loadData()
+  }
+
+  async loadData(){
+    this.listData = await this.dataServ.getData()
+  }
+
+  async addData(){
+    await this.dataServ.addData(`Eltro Lazo ${Math.floor(Math.random() * 100)}`)
+    this.loadData()
+  }
+
+  async removeItem(idx){
+    this.dataServ.removeData(idx)
+    this.listData.splice(idx, 1)
+  }
 
 }
