@@ -15,7 +15,7 @@ export class HomePage {
   }
 
   async loadData(){
-    this.listData = await this.dataServ.getData()
+    this.listData = await this.dataServ.getData();
   }
 
   async addData(){
